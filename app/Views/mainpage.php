@@ -33,7 +33,7 @@
     ?>
     <tr>
         <form method="post" action="<?= base_url().'/users/update/'.$user['id']?>" onsubmit="return confirm('Are you sure you want to update?');">
-        <td> <img class="img-thumbnail" src="<?= WRITEPATH.'uploads\\'.$user['photo']?>"/> </td>
+        <td> <img class="img-thumbnail" src="<?= base_url('.uploads/'.$user['photo'])?>"/> </td>
         <td> <input type="text" class="border" name="username" value="<?= $user["username"] ?>"> </td>
         <td> <input type="text" class="border" name="firstname" value="<?= $user["firstname"] ?>"> </td>
         <td> <input type="text" class="border" name="middlename" value="<?= $user["middlename"] ?>"> </td>

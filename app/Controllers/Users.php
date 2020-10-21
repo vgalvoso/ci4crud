@@ -23,8 +23,8 @@ class Users extends Controller{
         $image = $this->request->getFile("userpic");
         print_r($image);
         $new_name = $image->getRandomName();
-        //$image->move(WRITEPATH.'uploads',$new_name);
-        $image->store("./public/uploads/",$new_name);
+        $image->move('.uploads',$new_name);
+        //$image->store("./public/uploads/",$new_name);
 
         $data = [
             'photo' => $new_name,
@@ -35,8 +35,9 @@ class Users extends Controller{
             'birthday' => $this->request->getVar('birthday'),
             'contactnumber' => $this->request->getVar('contact_number')
         ];
-        $model->insert($data);
 
+		$model->insert($data);
+		
         return redirect()->to(base_url('Users'));
     }
 
@@ -64,6 +65,7 @@ class Users extends Controller{
         $model = new UsersModel();
 
         $model->where('id',$id)->delete();
+
         return redirect()->to(base_url('Users'));
     }
 }
